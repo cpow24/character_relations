@@ -1,6 +1,6 @@
-,file,shared_sentences,book
-0,peter_pan.txt,380,Peter Pan
-1,winnie_the_pooh.txt,405,Winnie the Pooh
-2,harry_potter_1.txt,1071,Harry Potter Book 1
-3,dracula.txt,597,Dracula
-4,charlie_and_the_chocolate_factory.txt,527,Charlie and the Chocolate Factory
+file,shared_sentences,book
+peter_pan.txt,380,Peter Pan
+winnie_the_pooh.txt,405,Winnie the Pooh
+harry_potter_1.txt,1071,Harry Potter Book 1
+dracula.txt,597,Dracula
+charlie_and_the_chocolate_factory.txt,527,Charlie and the Chocolate Factory
