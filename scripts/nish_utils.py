@@ -566,13 +566,15 @@ def char_id_list(char_list):
 
 
 def do_coreference(book, doc):
+  !wget -P directory https://drive.google.com/file/d/1tNqhCbAE4DK7U2b9UUvElI6TRkTUwP63/view?usp=sharing
+  new_directory = directory + '/Copy of model.pth'
 
   doc = re.sub('\n', ' ', doc)
   doc = re.sub('\'', '’', doc)
   doc = re.sub(' \"', ' \u201c', doc)
   doc = re.sub('\" ', '\u201d ', doc)
 
-  inference_model = Inference("character_relationship_analysis/char_coref/model.pth")
+  inference_model = Inference(new_directory)
 
   if book == 1:
     portion_1 = doc[:200000]
