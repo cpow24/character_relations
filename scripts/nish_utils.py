@@ -565,7 +565,7 @@ def char_id_list(char_list):
 
 
 
-def do_coreference(book, doc):
+def do_coreference(book, doc, directory):
   !wget -P directory https://drive.google.com/file/d/1tNqhCbAE4DK7U2b9UUvElI6TRkTUwP63/view?usp=sharing
   new_directory = directory + '/Copy of model.pth'
 
