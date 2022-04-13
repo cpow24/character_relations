@@ -566,7 +566,7 @@ def char_id_list(char_list):
 
 
 def do_coreference(book, doc, directory):
-  !pip install -U -q PyDrive
+  #!pip install -U -q PyDrive
   from pydrive.auth import GoogleAuth
   from pydrive.drive import GoogleDrive
   from google.colab import auth
@@ -686,4 +686,10 @@ def get_shared_sentences(book, doc, chars, use_own = False, cluster_list = []):
     encoding_dict, sentences = bigfunc_with_replace(clusters, char_dict, char_list, document, additive)
     dics.append(sentences)
 
-  return encoding_dict, amalgamate(dics)
+  with open("character_relationship_analysis/data/encoding.json", "w") as fp:
+  json.dump(encoding_dict, fp)
+
+  with open("character_relationship_analysis/data/pair_replace.json", "w") as fp:
+  json.dump(pair_dict, fp)
+
+  #return encoding_dict, amalgamate(dics)
