@@ -11,6 +11,7 @@ import sys
 import pickle
 import re
 
+from inference.inference import Inference
 
 # In[2]:
 
