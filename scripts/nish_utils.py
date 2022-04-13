@@ -622,42 +622,33 @@ def get_shared_sentences(book, doc, chars, use_own = False, cluster_list = []):
   if book == 1:
     files = ['Book_1_new[_200000]', 'Book_1_new[199900_]']
     ranges = [(0,200000), (199900,-1)]
-    char_list = list(chars[chars['book']=="Harry Potter Book 1"]['character'])
-    char_dict = get_char_ids(char_list)
-    char_list = char_id_list(char_list)
 
   if book == 3:
     files = ['dracula[_200000]', 'dracula[199900_400000]','dracula[399900_600000]', 'dracula[599900_]']
     ranges = [(0,200000), (199900,400000), (399900,600000), (599900,-1)]
-    char_list = list(chars[chars['book']=="Dracula"]['character'])
-    char_dict = get_char_ids(char_list)
-    char_list = char_id_list(char_list)
-
+    
   if book == 4:
     files = ['chocolate_factory']
     ranges = [(0,-1)]
-    char_list = list(chars[chars['book']=="Chocolate Factory"]['character'])
-    char_dict = get_char_ids(char_list)
-    char_list = char_id_list(char_list)
-
+    
   if book == 2:
     files = ['peter_pan']
     ranges = [(0,-1)]
-    char_list = list(chars[chars['book']=="Peter Pan"]['character'])
-    char_dict = get_char_ids(char_list)
-    char_list = char_id_list(char_list)
-
+  
   if book == 5:
     files = ['winnie_the_pooh']
     ranges = [(0,-1)]
-    char_list = list(chars[chars['book']=="Winnie the Pooh"]['character'])
-    char_dict = get_char_ids(char_list)
-    char_list = char_id_list(char_list)
+
+  else:
+    ranges = [(0,-1)]
   
   doc = re.sub('\n', ' ', doc)
   doc = re.sub('\'', '’', doc)
   doc = re.sub(' \"', ' \u201c', doc)
   doc = re.sub('\" ', '\u201d ', doc)
+
+  char_dict = get_char_ids(chars)
+  char_list = char_id_list(chars)
 
   dics = []
   for i in range(len(ranges)):
@@ -673,6 +664,7 @@ def get_shared_sentences(book, doc, chars, use_own = False, cluster_list = []):
 
     additive = calculate_additor(ranges[i][0], pre_doc_tokens)
 
+    
     if use_own:
       clusters = cluster_list[i]
     else:
