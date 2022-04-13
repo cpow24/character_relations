@@ -590,30 +590,30 @@ def do_coreference(book, doc, directory):
 
   if book == 1:
     portion_1 = doc[:200000]
-    output = inference_model.perform_coreference(portion)
+    output = inference_model.perform_coreference(portion_1)
     output_1 = output["clusters"]
 
     portion_2 = doc[199900:]
-    output = inference_model.perform_coreference(portion)
+    output = inference_model.perform_coreference(portion_2)
     output_2 = output["clusters"]
 
     clusters = [output_1,output_2]
     
   elif book == 3:
     portion_1 = doc[:200000]
-    output = inference_model.perform_coreference(portion)
+    output = inference_model.perform_coreference(portion_1)
     output_1 = output["clusters"]
 
     portion_2 = doc[199900:400000]
-    output = inference_model.perform_coreference(portion)
+    output = inference_model.perform_coreference(portion_2)
     output_2 = output["clusters"]
 
     portion_3 = doc[399900:600000]
-    output = inference_model.perform_coreference(portion)
+    output = inference_model.perform_coreference(portion_3)
     output_3 = output["clusters"]
 
     portion_4 = doc[699900:]
-    output = inference_model.perform_coreference(portion)
+    output = inference_model.perform_coreference(portion_4)
     output_4 = output["clusters"]
 
     clusters = [output_1,output_2,output_3,output_4]
