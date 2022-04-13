@@ -687,9 +687,9 @@ def get_shared_sentences(book, doc, chars, use_own = False, cluster_list = []):
     dics.append(sentences)
 
   with open("character_relationship_analysis/data/encoding.json", "w") as fp:
-  json.dump(encoding_dict, fp)
+    json.dump(encoding_dict, fp)
 
   with open("character_relationship_analysis/data/pair_replace.json", "w") as fp:
-  json.dump(pair_dict, fp)
+    json.dump(pair_dict, fp)
 
   #return encoding_dict, amalgamate(dics)
