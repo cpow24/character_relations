@@ -566,15 +566,27 @@ def char_id_list(char_list):
 
 
 def do_coreference(book, doc, directory):
-  !wget -P directory https://drive.google.com/file/d/1tNqhCbAE4DK7U2b9UUvElI6TRkTUwP63/view?usp=sharing
-  new_directory = directory + '/Copy of model.pth'
+  !pip install -U -q PyDrive
+  from pydrive.auth import GoogleAuth
+  from pydrive.drive import GoogleDrive
+  from google.colab import auth
+  from oauth2client.client import GoogleCredentials
+  # Authenticate and create the PyDrive client.
+  # This only needs to be done once per notebook.
+  auth.authenticate_user()
+  gauth = GoogleAuth()
+  gauth.credentials = GoogleCredentials.get_application_default()
+  drive = GoogleDrive(gauth)
+  file_id = '1tNqhCbAE4DK7U2b9UUvElI6TRkTUwP63' # URL id. 
+  downloaded = drive.CreateFile({'id': file_id})
+  downloaded.GetContentFile('Copy of model.pth')
 
   doc = re.sub('\n', ' ', doc)
   doc = re.sub('\'', '’', doc)
   doc = re.sub(' \"', ' \u201c', doc)
   doc = re.sub('\" ', '\u201d ', doc)
 
-  inference_model = Inference(new_directory)
+  inference_model = Inference('/content/Copy of model.pth')
 
   if book == 1:
     portion_1 = doc[:200000]
