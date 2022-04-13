@@ -691,6 +691,6 @@ def get_shared_sentences(book, doc, chars, use_own = False, cluster_list = []):
     json.dump(encoding_dict, fp)
 
   with open("character_relationship_analysis/data/pair_replace.json", "w") as fp:
-    json.dump(sentences, fp)
+    json.dump(amalgamate(dics), fp)
 
   #return encoding_dict, amalgamate(dics)
