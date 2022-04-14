@@ -1,0 +1,82 @@
+{
+  "model_dir": "../models/coref_cf6f3a912a174626f5eec9531ebce613",
+  "base_data_dir": "../data/",
+  "base_model_dir": "../models",
+  "dataset": "litbank_person_only",
+  "conll_scorer": "../reference-coreference-scorer/scorer.pl",
+  "model_size": "large",
+  "doc_enc": "overlap",
+  "pretrained_bert_dir": "../resources",
+  "max_segment_len": 512,
+  "max_span_width": 20,
+  "ment_emb": "attn",
+  "top_span_ratio": 0.25,
+  "mem_type": "learned",
+  "num_cells": 20,
+  "mlp_size": 3000,
+  "mlp_depth": 1,
+  "entity_rep": "wt_avg",
+  "emb_size": 20,
+  "cross_val_split": 3,
+  "new_ent_wt": 2.0,
+  "num_train_docs": null,
+  "max_training_segments": 5,
+  "sample_invalid": 0.325,
+  "dropout_rate": 0.3,
+  "label_smoothing_wt": 0.0,
+  "max_epochs": 1,
+  "seed": 0,
+  "init_lr": 0.0002,
+  "no_singletons": false,
+  "eval": true,
+  "slurm_id": null,
+  "eval_model": "coref_cf6f3a912a174626f5eec9531ebce613",
+  "mention_model": "ment_litbank_person_only_width_20_mlp_3000_model_large_emb_attn_type_spanbert_enc_overlap_segment_512",
+  "delete": false,
+  "trainer": null,
+  "crossval": false,
+  "second_dataset": "litbank_person_only",
+  "teacher_forcing": true,
+  "best_model_dir": "../models/coref_cf6f3a912a174626f5eec9531ebce613/best_models",
+  "data_dir": "../data/litbank_person_only/overlap/3",
+  "conll_data_dir": "../data/litbank_person_only/conll/3",
+  "pretrained_mention_model": "../models/ment_litbank_person_only_width_20_mlp_3000_model_large_emb_attn_type_spanbert_enc_overlap_segment_512/best_models/model.pth",
+  "dev": {
+    "MUC": {
+      "recall": 89.9,
+      "precision": 88.0,
+      "fscore": 88.9
+    },
+    "Bcub": {
+      "recall": 76.1,
+      "precision": 76.6,
+      "fscore": 76.3
+    },
+    "CEAFE": {
+      "recall": 60.6,
+      "precision": 67.4,
+      "fscore": 63.8
+    },
+    "fscore": 76.4,
+    "precision": 77.3
+  },
+  "test": {
+    "MUC": {
+      "recall": 87.1,
+      "precision": 87.2,
+      "fscore": 87.1
+    },
+    "Bcub": {
+      "recall": 75.6,
+      "precision": 74.0,
+      "fscore": 74.8
+    },
+    "CEAFE": {
+      "recall": 61.3,
+      "precision": 68.4,
+      "fscore": 64.7
+    },
+    "fscore": 75.5,
+    "precision": 76.5
+  }
+}
